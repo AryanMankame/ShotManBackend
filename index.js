@@ -8,7 +8,9 @@ mongoose.connect(`mongodb+srv://aryan672002:aryan672002@cluster0.p2xwit1.mongodb
 .then((res) => console.log('Connected Successfully')).catch((err) => console.log('Connect Failed',err));
 
 const {io,httpServer,app} = require('./socket.js');
-app.use(cors());
+app.use(cors({
+  origin : "*"
+}));
 app.use(bodyParser());
 
 io.on('connection',(socket) => {
